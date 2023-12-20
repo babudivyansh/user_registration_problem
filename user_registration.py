@@ -23,11 +23,12 @@ streamhdlr.setLevel(logging.DEBUG)
 
 
 class UserRegistration:
-    def __init__(self, first_name, last_name, email, mobile_number):
+    def __init__(self, first_name, last_name, email, mobile_number, password):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self. mobile_number = mobile_number
+        self.password = password
 
     def f_name_and_l_name_validation(self):
         """
@@ -67,6 +68,18 @@ class UserRegistration:
         else:
             return False
 
+    def password_validation(self):
+        """
+        Description: This function validate password.
+        Parameter: self object as parameter.
+        Return: boolean value
+        """
+        pattern = re.compile(r'\D{8}')
+        if pattern.match(self.password):
+            return True
+        else:
+            return False
+
 
 if __name__ == '__main__':
     try:
@@ -74,11 +87,13 @@ if __name__ == '__main__':
         l_name = input("Enter valid last name: ")
         mail = input("Enter valid email: ")
         m_number = input("Enter valid mobile number: ")
+        pws = input("Enter valid password: ")
 
-        user_registration_obj = UserRegistration(f_name, l_name, mail, m_number)
+        user_registration_obj = UserRegistration(f_name, l_name, mail, m_number, pws)
         print(user_registration_obj.f_name_and_l_name_validation())
         print(user_registration_obj.email_validation())
         print(user_registration_obj.mobile_number_validation())
+        print(user_registration_obj.password_validation())
 
     except Exception as e:
         logger.exception(e)
