@@ -1,11 +1,11 @@
 """
 @Author: Divyansh Babu
 
-@Date: 2023-12-19 11:55
+@Date: 2023-12-19 15:05
 
 @Last Modified by: Divyansh Babu
 
-@Last Modified time: 2023-12-19 11:55
+@Last Modified time: 2023-12-19 15:05
 
 @Title : User Registration Problem.
 """
@@ -74,7 +74,7 @@ class UserRegistration:
         Parameter: self object as parameter.
         Return: boolean value
         """
-        pattern = re.compile(r'(?=[A-Z])\D{7}')
+        pattern = re.compile(r'^(?=.*[A-Z])(?=.*[0-9]).{8,}$')
         if pattern.match(self.password):
             return True
         else:
