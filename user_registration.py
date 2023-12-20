@@ -74,7 +74,7 @@ class UserRegistration:
         Parameter: self object as parameter.
         Return: boolean value
         """
-        pattern = re.compile(r'^(?=.*[A-Z])(?=.*[0-9]).{8,}$')
+        pattern = re.compile(r'^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*+,.<>?/:_;-]).{8,}$')
         if pattern.match(self.password):
             return True
         else:
