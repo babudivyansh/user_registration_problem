@@ -1,11 +1,11 @@
 """
 @Author: Divyansh Babu
 
-@Date: 2023-12-19 11:55
+@Date: 2023-12-19 17:27
 
 @Last Modified by: Divyansh Babu
 
-@Last Modified time: 2023-12-19 11:55
+@Last Modified time: 2023-12-19 17:27
 
 @Title : User Registration Problem.
 """
@@ -61,7 +61,7 @@ class UserRegistration:
         Parameter: self object as parameter.
         Return: boolean value
         """
-        pattern = re.compile(r'^91 \d{10}$')
+        pattern = re.compile(r'^91 [6-9]{10}$')
         if pattern.match(self.mobile_number):
             return True
         else:
