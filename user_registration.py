@@ -61,7 +61,7 @@ class UserRegistration:
         Parameter: self object as parameter.
         Return: boolean value
         """
-        pattern = re.compile(r'^91 [6-9]{10}$')
+        pattern = re.compile(r'^(91 [6-9])[0-9]{9}$')
         if pattern.match(self.mobile_number):
             return True
         else:
