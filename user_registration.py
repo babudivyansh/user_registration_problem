@@ -1,11 +1,11 @@
 """
 @Author: Divyansh Babu
 
-@Date: 2023-12-19 11:49
+@Date: 2023-12-19 11:55
 
 @Last Modified by: Divyansh Babu
 
-@Last Modified time: 2023-12-19 11:49
+@Last Modified time: 2023-12-19 11:55
 
 @Title : User Registration Problem.
 """
@@ -23,9 +23,10 @@ streamhdlr.setLevel(logging.DEBUG)
 
 
 class UserRegistration:
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name, last_name, email):
         self.first_name = first_name
         self.last_name = last_name
+        self.email = email
 
     def f_name_and_l_name_validation(self):
         """
@@ -41,14 +42,28 @@ class UserRegistration:
         else:
             return False
 
+    def email_validation(self):
+        """
+        Description: This function validate email address.
+        Parameter: self object as parameter.
+        Return: boolean value.
+        """
+        pattern = re.compile(r"^[a-zA-Z]+(\.[a-zA-Z]+)?@[a-zA-Z]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$")
+        if pattern.match(self.email):
+            return True
+        else:
+            return False
+
 
 if __name__ == '__main__':
     try:
         f_name = input("Enter valid first name: ")
         l_name = input("Enter valid last name: ")
+        mail = input("Enter valid email: ")
 
-        user_registration_obj = UserRegistration(f_name, l_name)
+        user_registration_obj = UserRegistration(f_name, l_name, mail)
         print(user_registration_obj.f_name_and_l_name_validation())
+        print(user_registration_obj.email_validation())
 
     except Exception as e:
         logger.exception(e)
