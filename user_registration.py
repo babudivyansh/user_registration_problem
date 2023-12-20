@@ -74,7 +74,7 @@ class UserRegistration:
         Parameter: self object as parameter.
         Return: boolean value
         """
-        pattern = re.compile(r'(?=[A-Z])\D{7}')
+        pattern = re.compile(r'^(?=.*[A-Z]).{8}$')
         if pattern.match(self.password):
             return True
         else:
