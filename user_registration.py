@@ -50,7 +50,7 @@ class UserRegistration:
         Parameter: self object as parameter.
         Return: boolean value.
         """
-        pattern = re.compile(r"^[a-zA-Z]+([a-zA-Z0-9+_%.-]+)?@[a-zA-Z]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$")
+        pattern = re.compile(r"^[a-zA-Z]+(\.[a-zA-Z0-9#$%&*-]+)?@[a-zA-Z]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$")
         if pattern.match(self.email):
             return True
         else:
